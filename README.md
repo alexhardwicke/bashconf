@@ -1,0 +1,3 @@
+# bashconf
+Scripts and other files to configure my bash setup.
+Needs to be compatible with Windows, so there's a few oddities coming...
