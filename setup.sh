@@ -1,8 +1,19 @@
 #!/bin/bash
 # Clone git repos
-cd ~/
-git clone git@github.com:alexhardwicke/.dotfiles.git
-git clone git@github.com:alexhardwicke/.vim.git
+fnCloneOrPull()
+{
+    cd ~/
+    if [ -d "$1" ]; then
+        cd $1
+        git pull
+    else
+        git clone $2
+    fi
+}
+
+fnCloneOrPull ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git"
+fnCloneOrPull "bash-git-prompt/" "https://github.com/magicmonty/bash-git-prompt.git"
+fnCloneOrPull ".vim/" "git@github.com:alexhardwicke/.vim.git"
 
 # Get vim submodules
 cd ~/
