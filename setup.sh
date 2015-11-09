@@ -23,12 +23,7 @@ ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
 
 # Choose appropriate gitconfig
 cd ~/
-read -p "Are you at work? (y/n) " at_work
-case $at_work in
-  [Yy]* ) ln -s ~/.dotfiles/.gitconfig_work ~/.gitconfig;;
-  [Nn]* ) ln -s ~/.dotfiles/.gitconfig_home ~/.gitconfig;;
-  * ) echo "Invalid choice";;
-esac
+ln ~/.dotfiles/.gitconfig ~/.gitconfig
 
 # Set up AutoJump
 cd ~/
