@@ -66,10 +66,8 @@ ln ~/.dotfiles/.bashrc ~/.bashrc
 ln ~/.dotfiles/.gvimrc ~/.gvimrc
 ln ~/.dotfiles/.minttyrc ~/.minttyrc
 ln ~/.dotfiles/.vimrc ~/.vimrc
-
 ln ~/.dotfiles/.bash_profile ~/.bash_profile
 ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
-
 ln ~/.dotfiles/.gitconfig ~/.gitconfig
 
 # Set up AutoJump
