@@ -1,4 +1,8 @@
 #!/bin/bash
+
+# Save current path
+cwd=$(pwd)
+
 # Clone git repos
 fnCloneOrPull()
 {
@@ -41,6 +45,13 @@ cd ~/
 git clone git@github.com:alexhardwicke/autojump.git
 cd autojump
 ./install.py
+
+# Copy ack bin file
+cd ~/
+mkdir bin
+cd $cwd
+cd bin
+copy ack ~/bin/
 
 # Manual Configuration
 printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
