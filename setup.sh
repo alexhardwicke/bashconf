@@ -53,7 +53,11 @@ fnCloneOrPull "autojump" "git@github.com:alexhardwicke/autojump.git"
 cd ~/
 cd .vim
 git submodule update --init --recursive
-mkdir undodir
+
+if [ ! -d undodir ];
+then
+    mkdir undodir
+fi
 
 # Set hard-links to dotfiles
 cd ~/
