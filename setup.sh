@@ -70,7 +70,6 @@ ln ~/.dotfiles/.vimrc ~/.vimrc
 ln ~/.dotfiles/.bash_profile ~/.bash_profile
 ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
 
-# Choose appropriate gitconfig
 cd ~/
 ln ~/.dotfiles/.gitconfig ~/.gitconfig
 
