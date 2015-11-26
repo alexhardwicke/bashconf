@@ -1,5 +1,34 @@
 #!/bin/bash
 
+# If windows, make sure everything's ready to go
+if [[ $(uname) == MING* ]] ;
+then
+    # If the file exists, delete it
+    if [ -f "C:/Windows/bashadmin.ext" ]; then
+        result=$(rm C:/Windows/bashadmin.ext 2>&1)
+        # If we managed to delete it, we'll recreate it, because if we
+        # created the file previously, we own it and have the right to
+        # delete it
+        if [ -z "$result" ] ;
+        then
+            result=$(touch C:/Windows/bashadmin.ext 2>&1)
+        fi
+    else
+        # File doesn't exist, just create it
+        result=$(touch C:/Windows/bashadmin.ext 2>&1)
+    fi
+
+    # If we've got no result, it all worked, we're admin
+    if [ -z "$result" ] ;
+    then
+        echo "Exporting winsymlinks"
+        export CYGWIN="winsymlinks:native"
+    else
+        echo "This needs to be run as admin on Windows. Exiting."
+        exit 1
+    fi
+fi
+
 # Save current path
 cwd=$(pwd)
 
