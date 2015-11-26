@@ -53,5 +53,11 @@ cd $cwd
 cd bin
 copy ack ~/bin/
 
+# Set up pygment
+cd $cwd
+cd bin
+python get-pip.py
+pip.exe install Pygments-2.0.2-py2-none-any.whl
+
 # Manual Configuration
 printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
