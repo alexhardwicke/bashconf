@@ -44,6 +44,7 @@ fnCloneOrPull()
     fi
 }
 
+# Clone the repos
 fnCloneOrPull ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git"
 fnCloneOrPull "bash-git-prompt/" "https://github.com/magicmonty/bash-git-prompt.git"
 fnCloneOrPull ".vim/" "git@github.com:alexhardwicke/.vim.git"
