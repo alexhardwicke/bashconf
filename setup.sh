@@ -76,11 +76,16 @@ cd autojump
 ./install.py
 
 # Copy ack bin file
-cd ~/
-mkdir bin
-cd $cwd
-cd bin
-copy ack ~/bin/
+if [ ! -f ~/bin/ack ];
+then
+    if [ ! -d ~/bin/ ];
+    then
+        mkdir ~/bin/
+    fi
+    cd $cwd
+    cd bin
+    copy ack ~/bin/
+fi
 
 # Set up pygment
 cd $cwd
