@@ -47,6 +47,7 @@ fnCloneOrPull()
 fnCloneOrPull ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git"
 fnCloneOrPull "bash-git-prompt/" "https://github.com/magicmonty/bash-git-prompt.git"
 fnCloneOrPull ".vim/" "git@github.com:alexhardwicke/.vim.git"
+fnCloneOrPull "autojump" "git@github.com:alexhardwicke/autojump.git"
 
 # Get vim submodules
 cd ~/
@@ -71,7 +72,6 @@ ln ~/.dotfiles/.gitconfig ~/.gitconfig
 
 # Set up AutoJump
 cd ~/
-git clone git@github.com:alexhardwicke/autojump.git
 cd autojump
 ./install.py
 
