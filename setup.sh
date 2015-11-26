@@ -71,8 +71,7 @@ cd ~/
 ln ~/.dotfiles/.gitconfig ~/.gitconfig
 
 # Set up AutoJump
-cd ~/
-cd autojump
+cd ~/autojump
 ./install.py
 
 # Copy ack bin file
