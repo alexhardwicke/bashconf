@@ -84,7 +84,7 @@ then
     fi
     cd $cwd
     cd bin
-    copy ack ~/bin/
+    cp ack ~/bin/
 fi
 
 # Set up pygment
