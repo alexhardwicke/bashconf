@@ -49,6 +49,8 @@ fnCloneOrPull ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git"
 fnCloneOrPull "bash-git-prompt/" "https://github.com/magicmonty/bash-git-prompt.git"
 fnCloneOrPull ".vim/" "git@github.com:alexhardwicke/.vim.git"
 fnCloneOrPull "autojump" "git@github.com:alexhardwicke/autojump.git"
+fnCloneOrPull "vim-operator-user" "https://github.com/kana/vim-operator-user"
+fnCloneOrPull "vim-operator-flashy" "https://github.com/haya14busa/vim-operator-flashy"
 
 # Get vim submodules
 cd ~/
