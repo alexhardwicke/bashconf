@@ -103,7 +103,7 @@ fi
 # Set up pygment
 cd $cwd
 cd bin
-python get-pip.py
+sudo python get-pip.py
 if [[ $(uname) == Linux* ]] ;
 then
     sudo -H pip install Pygments-2.0.2-py2-none-any.whl
