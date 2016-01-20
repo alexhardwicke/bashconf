@@ -104,7 +104,13 @@ fi
 cd $cwd
 cd bin
 python get-pip.py
-pip.exe install Pygments-2.0.2-py2-none-any.whl
+if [[ $(uname) == Linux* ]] ;
+then
+    sudo -H pip install Pygments-2.0.2-py2-none-any.whl
+else
+    pip.exe install Pygments-2.0.2-py2-none-any.whl
+fi
+
 
 # Manual Configuration
 printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
