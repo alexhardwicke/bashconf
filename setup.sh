@@ -27,6 +27,15 @@ then
         echo "This needs to be run as admin on Windows. Exiting."
         exit 1
     fi
+else
+    if [[ $(uname) == Linux* ]] ;
+    then
+        if [ $EUID -ne 0 ];
+        then
+            echo "This script should be run as root." > /dev/stderr
+            exit 1
+        fi
+    fi
 fi
 
 # Save current path
