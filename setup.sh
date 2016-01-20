@@ -62,14 +62,27 @@ fi
 
 # Set hard-links to dotfiles
 cd ~/
-ln ~/.dotfiles/.ackrc ~/.ackrc
-ln ~/.dotfiles/.bashrc ~/.bashrc
-ln ~/.dotfiles/.gvimrc ~/.gvimrc
-ln ~/.dotfiles/.minttyrc ~/.minttyrc
-ln ~/.dotfiles/.vimrc ~/.vimrc
-ln ~/.dotfiles/.bash_profile ~/.bash_profile
-ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
-ln ~/.dotfiles/.gitconfig ~/.gitconfig
+if [[ $(uname) == Linux* ]] ;
+then
+    rm ~/.bashrc
+    sudo ln ~/.dotfiles/.ackrc ~/.ackrc
+    sudo ln ~/.dotfiles/.bashrc ~/.bashrc
+    sudo ln ~/.dotfiles/.gvimrc ~/.gvimrc
+    sudo ln ~/.dotfiles/.minttyrc ~/.minttyrc
+    sudo ln ~/.dotfiles/.vimrc ~/.vimrc
+    sudo ln ~/.dotfiles/.bash_profile ~/.bash_profile
+    sudo ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
+    sudo ln ~/.dotfiles/.gitconfig ~/.gitconfig
+else
+    ln ~/.dotfiles/.ackrc ~/.ackrc
+    ln ~/.dotfiles/.bashrc ~/.bashrc
+    ln ~/.dotfiles/.gvimrc ~/.gvimrc
+    ln ~/.dotfiles/.minttyrc ~/.minttyrc
+    ln ~/.dotfiles/.vimrc ~/.vimrc
+    ln ~/.dotfiles/.bash_profile ~/.bash_profile
+    ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
+    ln ~/.dotfiles/.gitconfig ~/.gitconfig
+fi
 
 # Set up AutoJump
 cd ~/autojump
