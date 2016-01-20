@@ -113,6 +113,8 @@ fi
 
 if [[ $(uname) == Linux* ]] ;
 then
+    mkdir -p ~/.local/share/fonts/
+    cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
     gsettings set org.pantheon.terminal.settings cursor-shape 'I-Beam'
     gsettings set org.pantheon.terminal.settings background '#002B36'
     gsettings set org.pantheon.terminal.settings cursor-color '#DC322F'
