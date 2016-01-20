@@ -111,11 +111,6 @@ else
     pip.exe install Pygments-2.0.2-py2-none-any.whl
 fi
 
-
-# Manual Configuration
-printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
-
-
 if [[ $(uname) == Linux* ]] ;
 then
     gsettings set org.pantheon.terminal.settings cursor-shape 'I-Beam'
@@ -124,4 +119,6 @@ then
     gsettings set org.pantheon.terminal.settings foreground '#839496'
     gsettings set org.pantheon.terminal.settings opacity '100'
     gsettings set org.gnome.desktop.interface monospace-font-name 'Powerline Consolas 15'
+else
+    printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
 fi
