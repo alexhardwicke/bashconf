@@ -113,6 +113,7 @@ fi
 
 if [[ $(uname) == Linux* ]] ;
 then
+    printf "Configuring Elementary OS"
     mkdir -p ~/.local/share/fonts/
     cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
     gsettings set org.pantheon.terminal.settings cursor-shape 'I-Beam'
@@ -121,6 +122,8 @@ then
     gsettings set org.pantheon.terminal.settings foreground '#839496'
     gsettings set org.pantheon.terminal.settings opacity '100'
     gsettings set org.gnome.desktop.interface monospace-font-name 'Powerline Consolas 15'
+    gsettings set com.canonical.indicator.datetime time-format '12-hour'
+    gsettings set org.gtk.settings.file-chooser clock-format '12h'
 else
     printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
 fi
