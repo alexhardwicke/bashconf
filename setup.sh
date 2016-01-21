@@ -106,7 +106,7 @@ cd bin
 
 if [[ $(uname) == Linux* ]] ;
 then
-    sudo python get-pip.py
+    sudo -H python get-pip.py
     sudo -H pip install Pygments-2.0.2-py2-none-any.whl
 else
     python get-pip.py
