@@ -124,7 +124,7 @@ then
     gsettings set org.gnome.desktop.interface monospace-font-name 'Powerline Consolas 15'
     gsettings set com.canonical.indicator.datetime time-format '12-hour'
     gsettings set org.gtk.settings.file-chooser clock-format '12h'
-    printf "\nMANUAL CONFIGURATION:\nSet default web browser to Firefox\nSet Language to en-GB\nDownload language pack\nSet trackpad speed\nDisable Guest\nDisable second monitor\nUnpin calendar, music, video, photos\nPin terminal, firefox"
+    printf "\nMANUAL CONFIGURATION:\nSet default web browser to Firefox\nSet Language to en-GB\nDownload language pack\nSet trackpad speed\nDisable Guest\nDisable second monitor\nUnpin calendar, music, video, photos\nPin terminal, firefox\n\n"
 else
     printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
 fi
