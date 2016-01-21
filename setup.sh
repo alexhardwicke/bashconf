@@ -116,6 +116,7 @@ fi
 if [[ $(uname) == Linux* ]] ;
 then
     printf "Configuring Elementary OS"
+    sudo apt-get install exuberant-ctags
     mkdir -p ~/.local/share/fonts/
     cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
     gsettings set org.pantheon.terminal.settings cursor-shape 'I-Beam'
