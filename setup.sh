@@ -103,17 +103,20 @@ fi
 # Set up pygment
 cd $cwd
 cd bin
-sudo python get-pip.py
+
 if [[ $(uname) == Linux* ]] ;
 then
+    sudo python get-pip.py
     sudo -H pip install Pygments-2.0.2-py2-none-any.whl
 else
+    python get-pip.py
     pip.exe install Pygments-2.0.2-py2-none-any.whl
 fi
 
 if [[ $(uname) == Linux* ]] ;
 then
     printf "Configuring Elementary OS"
+    sudo apt-get install exuberant-ctags
     mkdir -p ~/.local/share/fonts/
     cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
     gsettings set org.pantheon.terminal.settings cursor-shape 'I-Beam'
