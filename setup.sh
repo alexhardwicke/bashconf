@@ -116,8 +116,11 @@ fi
 if [[ $(uname) == Linux* ]] ;
 then
     printf "Installing Software"
+    sudo apt-add-repository -y ppa:cybre/elementaryplus
+    sudo apt-add-repository -y ppa:hourglass-team/hourglass-daily
     sudo apt-get update
-    sudo apt-get install -y vim vim-gnome git-gui
+    sudp apt-get upgrade -y
+    sudo apt-get install -y vim vim-gnome git-gui hourglass elementaryplus
     printf "Configuring Elementary OS"
     mkdir -p ~/.local/share/fonts/
     cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
