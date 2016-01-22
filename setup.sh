@@ -135,5 +135,7 @@ then
     gsettings set com.canonical.indicator.bluetooth visible false
     printf "\nMANUAL CONFIGURATION:\nInstall Chrome and set it as the default web browser\nSet Language to en-GB\nDownload language pack\nSet trackpad speed\nDisable Guest\nDisable second monitor\nUnpin calendar, music, video, photos\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\nChange plank theme to darktheon via Tweaks in System Settings\n\nSSD OPTIMIZATION:\nsudo vim /etc/default/grub\nChange \"quiet splash\" to \"quiet splash elevator=noop\"\nsudo update-grub\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\n\n"
 else
-    printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
+    cd ~/
+    git clone https://github.com/alexhardwicke/.ahk
+    printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\nAdd a shortcut to ~/.ahk/TerminalHotKey.exe to ~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup\n\n"
 fi
