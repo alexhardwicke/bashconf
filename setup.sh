@@ -115,6 +115,10 @@ fi
 
 if [[ $(uname) == Linux* ]] ;
 then
+    printf "Installing Software"
+    sudo apt-get install vim
+    sudo apt-get install vim-gnome
+    sudo apt-get install git-gui
     printf "Configuring Elementary OS"
     mkdir -p ~/.local/share/fonts/
     cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
