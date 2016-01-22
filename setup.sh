@@ -118,6 +118,7 @@ then
     printf "Installing Software"
     sudo apt-add-repository -y ppa:cybre/elementaryplus
     sudo apt-add-repository -y ppa:hourglass-team/hourglass-daily
+    sudo apt-add-repository -y ppa:justsomedood/justsomeelementary
     sudo apt-get update
     sudp apt-get upgrade -y
     sudo apt-get install -y vim vim-gnome git-gui hourglass elementaryplus
