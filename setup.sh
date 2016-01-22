@@ -116,6 +116,7 @@ fi
 if [[ $(uname) == Linux* ]] ;
 then
     printf "Installing Software"
+    sudo apt-get update
     sudo apt-get install -y vim vim-gnome git-gui
     printf "Configuring Elementary OS"
     mkdir -p ~/.local/share/fonts/
