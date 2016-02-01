@@ -120,7 +120,7 @@ then
     sudo apt-add-repository -y ppa:hourglass-team/hourglass-daily
     sudo apt-add-repository -y ppa:justsomedood/justsomeelementary
     sudo apt-get update
-    sudp apt-get upgrade -y
+    sudo apt-get upgrade -y
     sudo apt-get install -y vim vim-gnome git-gui hourglass elementaryplus ubuntu-restricted-extras elementary-tweaks plank-theme-darktheon
     printf "Configuring Elementary OS"
     mkdir -p ~/.local/share/fonts/
