@@ -116,6 +116,7 @@ fi
 if [[ $(uname) == Linux* ]] ;
 then
     printf "Installing Software"
+    curl -O https://dist.keybase.io/linux/deb/keybase-latest-amd64.deb && sudo dpkg -i keybase-latest-amd64.deb
     sudo apt-add-repository -y ppa:cybre/elementaryplus
     sudo apt-add-repository -y ppa:hourglass-team/hourglass-daily
     sudo apt-add-repository -y ppa:justsomedood/justsomeelementary
