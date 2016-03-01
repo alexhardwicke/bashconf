@@ -183,19 +183,19 @@ sub add_castle {
 };
 
 	my $castle_mask = q{
-               1RR
-               1
+                RR
+                
               yyy
              y   y
- 1   1   1  y     y  1   1   1
-1 111 111 1y 1   1 y1 111 111 1
-1111111 11111 111 1111111111111
- 1 11 1  1 11 1 1    11 11   1
- 11 111  11 1 1 1    1111111 1
- 1 11    11 1 yyy    1 11 1  1
- 11  111 11  yy yy   111 111 1
- 11 11   1 1y y y y  11 1 1  1
- 11111111111yyyyyyy11111111111
+            y     y           
+           y       y           
+                               
+                              
+                              
+              yyy             
+             yy yy            
+            y y y y           
+            yyyyyyy           
 };
 
 	$anim->new_entity(
@@ -203,7 +203,7 @@ sub add_castle {
 		shape		=> $castle_image,
 		color		=> $castle_mask,
 		position	=> [ $anim->width()-32, $anim->height()-13, $depth{'castle'} ],
-		default_color	=> 'BLACK',
+		default_color	=> 'GRAY',
 	);
 }
 
