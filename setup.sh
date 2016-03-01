@@ -98,6 +98,7 @@ then
     cd $cwd
     cd bin
     cp ack ~/bin/
+    sudo chmod +x ~/bin/ack
 fi
 
 # Set up pygment
@@ -122,7 +123,17 @@ then
     sudo apt-add-repository -y ppa:justsomedood/justsomeelementary
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui hourglass elementaryplus ubuntu-restricted-extras elementary-tweaks plank-theme-darktheon
+    sudo apt-get install -y vim vim-gnome git-gui hourglass elementaryplus ubuntu-restricted-extras elementary-tweaks plank-theme-darktheon libcurses-perl
+    printf "Configuring Term::Animation"
+    cd /tmp
+    wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.4.tar.gz
+    tar -zxvf Term-Animation-2.4.tar.gz
+    cd Term-Animation-2.4/
+    perl Makefile.PL && make && make test
+    sudo make install
+    cd ~/bashconf/
+    sudo cp asciiquarium /usr/local/bin
+    sudo chmod 0755 /usr/local/bin/asciiquarium
     printf "Configuring Elementary OS"
     mkdir -p ~/.local/share/fonts/
     cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
