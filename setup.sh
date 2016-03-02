@@ -100,6 +100,16 @@ then
     cp ack ~/bin/
 fi
 
+# Copy diff-so-fancy
+if [ ! -f ~/bin/diff-so-fancy ];
+then
+    cd $cwd
+    cd bin
+    cp diff-so-fancy ~/bin/
+    cp third_party ~/bin/
+    cp libs ~/bin/
+fi
+
 # Set up pygment
 cd $cwd
 cd bin
