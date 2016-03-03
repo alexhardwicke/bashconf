@@ -107,8 +107,8 @@ then
     cd $cwd
     cd bin
     cp diff-so-fancy ~/bin/
-    cp third_party ~/bin/
-    cp libs ~/bin/
+    cp -r third_party ~/bin/
+    cp -r libs ~/bin/
 fi
 
 # Set up pygment
