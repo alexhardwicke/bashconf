@@ -118,6 +118,10 @@ fi
 if [[ $(uname) == Linux* ]] ;
 then
     curl -O https://dist.keybase.io/linux/deb/keybase-latest-amd64.deb && sudo dpkg -i keybase-latest-amd64.deb
+else
+    cd $cwd
+    cd bin
+    cp keybase.exe ~/bin/
 fi
 
 # Set up pygment
