@@ -109,6 +109,9 @@ then
     cp diff-so-fancy ~/bin/
     cp -r third_party ~/bin/
     cp -r libs ~/bin/
+    chmod +x ~/bin/diff-so-fancy
+    chmod +x ~/bin/libs/header_clean/header_clean.pl
+    chmod +x ~/bin/third_party/diff-highlight/diff-highlight
 fi
 
 # Set up pygment
