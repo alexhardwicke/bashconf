@@ -9,6 +9,7 @@ Scale Uniform by 91.3261%
 move, x: 0, y: -104
 
 MAKING A VIM-DEVICONS GLYPH WORK ON LINUX
+Move, x: 0, y: -416
 
 MAKING A VIM-DEVICONS SYMBOL WORK ON WINDOWS
 Scale, x: 138.69346%, y: 100%
