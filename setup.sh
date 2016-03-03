@@ -98,7 +98,7 @@ then
     cd $cwd
     cd bin
     cp ack ~/bin/
-    sudo chmod +x ~/bin/ack
+    chmod +x ~/bin/ack
 fi
 
 # Copy diff-so-fancy
