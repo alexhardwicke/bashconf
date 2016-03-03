@@ -131,9 +131,12 @@ then
     sudo apt-add-repository -y ppa:cybre/elementaryplus
     sudo apt-add-repository -y ppa:hourglass-team/hourglass-daily
     sudo apt-add-repository -y ppa:justsomedood/justsomeelementary
+    sudo apt-add-repository -y ppa:ubuntu-desktop/ubuntu-make
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui hourglass elementaryplus ubuntu-restricted-extras elementary-tweaks plank-theme-darktheon libcurses-perl
+    sudo apt-get install -y vim vim-gnome git-gui hourglass elementaryplus ubuntu-restricted-extras elementary-tweaks plank-theme-darktheon libcurses-perl ubuntu-make
+    printf "Configuring VS Code"
+    umake ide visual-studio-code
     printf "Configuring Term::Animation"
     cd /tmp
     wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.4.tar.gz
