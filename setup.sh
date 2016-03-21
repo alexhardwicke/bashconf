@@ -114,6 +114,15 @@ then
     chmod +x ~/bin/third_party/diff-highlight/diff-highlight
 fi
 
+# Set up Enpass
+if [[ $(uname) == Linux* ]] ;
+then
+    sudo su
+    echo "deb http://repo.sinew.in/ stable main" > \
+        /etc/apt/sources.list.d/enpass.list
+    wget -O -http://repo.sinew.in/keys/enpass-linux.key | apt-key add -
+fi
+
 # Set up keybase
 if [[ $(uname) == Linux* ]] ;
 then
