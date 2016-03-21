@@ -186,7 +186,7 @@ then
         gsettings set com.canonical.indicator.bluetooth visible false
         printf "\nMANUAL CONFIGURATION:\nUnpin calendar, music, video, photos\nChange plank theme to darktheon via Tweaks in System Settings"
     else
-        printf "\nMANUAL CONFIGURATION:\nConfigure terminal, disable bluetooth icon, register powerline linux font"
+        printf "\nMANUAL CONFIGURATION:\nConfigure terminal, disable bluetooth icon, register powerline linux font, configure date time format to 12 hour"
     fi
     printf "\nInstall Chrome and set it as the default web browser\nSet Language to en-GB\nDownload language pack\nSet trackpad speed\nDisable Guest\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nsudo vim /etc/default/grub\nChange \"quiet splash\" to \"quiet splash elevator=noop\"\nsudo update-grub\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\n\n"
 else
