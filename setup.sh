@@ -149,13 +149,10 @@ fi
 if [[ $(uname) == Linux* ]] ;
 then
     printf "Installing Software"
-    sudo apt-add-repository -y ppa:cybre/elementaryplus
-    sudo apt-add-repository -y ppa:hourglass-team/hourglass-daily
-    sudo apt-add-repository -y ppa:justsomedood/justsomeelementary
     sudo apt-add-repository -y ppa:ubuntu-desktop/ubuntu-make
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui hourglass elementaryplus ubuntu-restricted-extras elementary-tweaks plank-theme-darktheon libcurses-perl ubuntu-make
+    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl ubuntu-make
     printf "Configuring VS Code"
     umake ide visual-studio-code
     printf "Configuring Term::Animation"
@@ -172,6 +169,11 @@ then
     if [[ $(lsb_release -a) == *elementary* ]] ;
     then
         printf "Configuring Elementary OS"
+        sudo apt-add-repository -y ppa:cybre/elementaryplus
+        sudo apt-add-repository -y ppa:hourglass-team/hourglass-daily
+        sudo apt-add-repository -y ppa:justsomedood/justsomeelementary
+        sudo apt-get update
+        sudo apt-get install -y hourglass elementaryplus elementary-tweaks plank-theme-darktheon 
         mkdir -p ~/.local/share/fonts/
         cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
         gsettings set org.pantheon.terminal.settings cursor-shape 'I-Beam'
