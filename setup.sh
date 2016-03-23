@@ -146,9 +146,11 @@ then
     sudo apt-add-repository -y ppa:ubuntu-desktop/ubuntu-make
     sudo echo "deb http://repo.sinew.in/ stable main" > /etc/apt/sources.list.d/enpass.list
     wget -O - http://repo.sinew.in/keys/enpass-linux.key | apt-key add -
+    wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+    sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl ubuntu-make enpass ack-grep
+    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl ubuntu-make enpass ack-grep google-chrome-stable
     printf "Configuring VS Code"
     umake ide visual-studio-code
     printf "Configuring Term::Animation"
@@ -195,7 +197,7 @@ then
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$uuid/ visible-name 'Default'
         printf "\nMANUAL CONFIGURATION:\nConfigure terminal, disable bluetooth icon, register powerline linux font, configure date time format to 12 hour"
     fi
-    printf "\nInstall Chrome and set it as the default web browser\nSet Language to en-GB\nDownload language pack\nSet trackpad speed\nDisable Guest\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nsudo vim /etc/default/grub\nChange \"quiet splash\" to \"quiet splash elevator=noop\"\nsudo update-grub\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\nInstall VeraCrypt\n\n"
+    printf "\nSet Chrome as Default Browser (Settings->Details->Default Applications)\nSet Language to en-GB\nDownload language pack\nSet trackpad speed\nDisable Guest\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nsudo vim /etc/default/grub\nChange \"quiet splash\" to \"quiet splash elevator=noop\"\nsudo update-grub\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\nInstall VeraCrypt\n\n"
 else
     cd ~/
     git clone https://github.com/alexhardwicke/.ahk
