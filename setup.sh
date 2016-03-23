@@ -114,15 +114,6 @@ then
     chmod +x ~/bin/third_party/diff-highlight/diff-highlight
 fi
 
-# Set up Enpass
-if [[ $(uname) == Linux* ]] ;
-then
-    sudo su
-    echo "deb http://repo.sinew.in/ stable main" > \
-        /etc/apt/sources.list.d/enpass.list
-    wget -O -http://repo.sinew.in/keys/enpass-linux.key | apt-key add -
-fi
-
 # Set up keybase
 if [[ $(uname) == Linux* ]] ;
 then
@@ -150,9 +141,11 @@ if [[ $(uname) == Linux* ]] ;
 then
     printf "Installing Software"
     sudo apt-add-repository -y ppa:ubuntu-desktop/ubuntu-make
+    sudo echo "deb http://repo.sinew.in/ stable main" > /etc/apt/sources.list.d/enpass.list
+    wget -O - http://repo.sinew.in/keys/enpass-linux.key | apt-key add -
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl ubuntu-make
+    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl ubuntu-make enpass
     printf "Configuring VS Code"
     umake ide visual-studio-code
     printf "Configuring Term::Animation"
