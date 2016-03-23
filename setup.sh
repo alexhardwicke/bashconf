@@ -150,8 +150,8 @@ if [[ $(uname) == Linux* ]] ;
 then
     printf "Installing Software"
     sudo apt-add-repository -y ppa:ubuntu-desktop/ubuntu-make
-    sudo echo "deb http://repo.sinew.in/ stable main" > /etc/apt/sources.list.d/enpass.list
-    wget -O - http://repo.sinew.in/keys/enpass-linux.key | apt-key add -
+    sudo sh -c 'echo "deb http://repo.sinew.in/ stable main" >> /etc/apt/sources.list.d/enpass.list'
+    wget -O - http://repo.sinew.in/keys/enpass-linux.key | sudo apt-key add -
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
