@@ -156,9 +156,7 @@ then
     sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl ubuntu-make enpass ack-grep google-chrome-stable
-    printf "Configuring VS Code"
-    umake ide visual-studio-code
+    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl enpass ack-grep google-chrome-stable
     printf "Configuring Term::Animation"
     cd /tmp
     wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.4.tar.gz
