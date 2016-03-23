@@ -145,7 +145,7 @@ then
     wget -O - http://repo.sinew.in/keys/enpass-linux.key | apt-key add -
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl ubuntu-make enpass
+    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl ubuntu-make enpass ack-grep
     printf "Configuring VS Code"
     umake ide visual-studio-code
     printf "Configuring Term::Animation"
