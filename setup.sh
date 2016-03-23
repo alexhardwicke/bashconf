@@ -89,16 +89,18 @@ cd ~/autojump
 ./install.py
 
 # Copy ack bin file
-if [ ! -f ~/bin/ack ];
-then
-    if [ ! -d ~/bin/ ];
+if [[ $(uname) == MING* ]] ;
+    if [ ! -f ~/bin/ack ];
     then
-        mkdir ~/bin/
+        if [ ! -d ~/bin/ ];
+        then
+            mkdir ~/bin/
+        fi
+        cd $cwd
+        cd bin
+        cp ack ~/bin/
+        chmod +x ~/bin/ack
     fi
-    cd $cwd
-    cd bin
-    cp ack ~/bin/
-    chmod +x ~/bin/ack
 fi
 
 # Copy diff-so-fancy
