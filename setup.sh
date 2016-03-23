@@ -90,6 +90,7 @@ cd ~/autojump
 
 # Copy ack bin file
 if [[ $(uname) == MING* ]] ;
+then
     if [ ! -f ~/bin/ack ];
     then
         if [ ! -d ~/bin/ ];
