@@ -184,7 +184,7 @@ then
         gsettings set com.canonical.indicator.bluetooth visible false
         printf "\nMANUAL CONFIGURATION:\nUnpin calendar, music, video, photos\nChange plank theme to darktheon via Tweaks in System Settings"
     else
-        sudo apt-add-repository ppa:numix/ppa
+        sudo apt-add-repository -y ppa:numix/ppa
         sudo apt-get update
         sudo apt-get install numix-gtk-theme numix-icon-theme-circle
         uuid=$(gsettings get org.gnome.Terminal.ProfilesList default)
