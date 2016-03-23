@@ -158,6 +158,8 @@ then
     cd ~/bashconf/
     sudo cp asciiquarium /usr/local/bin
     sudo chmod 0755 /usr/local/bin/asciiquarium
+    mkdir -p ~/.local/share/fonts/
+    cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
 
     if [[ $(lsb_release -a) == *elementary* ]] ;
     then
@@ -167,8 +169,6 @@ then
         sudo apt-add-repository -y ppa:justsomedood/justsomeelementary
         sudo apt-get update
         sudo apt-get install -y hourglass elementaryplus elementary-tweaks plank-theme-darktheon 
-        mkdir -p ~/.local/share/fonts/
-        cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
         gsettings set org.pantheon.terminal.settings cursor-shape 'I-Beam'
         gsettings set org.pantheon.terminal.settings background '#002B36'
         gsettings set org.pantheon.terminal.settings cursor-color '#DC322F'
