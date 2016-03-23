@@ -107,6 +107,10 @@ fi
 # Copy diff-so-fancy
 if [ ! -f ~/bin/diff-so-fancy ];
 then
+    if [ ! -d ~/bin/ ];
+    then
+        mkdir ~/bin/
+    fi
     cd $cwd
     cd bin
     cp diff-so-fancy ~/bin/
