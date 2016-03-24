@@ -203,6 +203,5 @@ then
     printf "\nSet Chrome as Default Browser (Settings->Details->Default Applications)\nSet Language to en-GB\nDownload language pack\nSet trackpad speed\nDisable Guest\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nsudo vim /etc/default/grub\nChange \"quiet splash\" to \"quiet splash elevator=noop\"\nsudo update-grub\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\nInstall VeraCrypt\n\n"
 else
     cd ~/
-    git clone https://github.com/alexhardwicke/.ahk
-    printf "\nMANUAL CONFIGURATION:\nInstall VeraCrypt\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\nAdd a shortcut to ~/.ahk/TerminalHotKey.exe to ~/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup\n\n"
+    printf "\nMANUAL CONFIGURATION:\nInstall VeraCrypt\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
 fi
