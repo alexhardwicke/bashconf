@@ -186,7 +186,7 @@ then
     else
         sudo apt-add-repository ppa:numix/ppa
         sudo apt-get update
-        sudo apt-get install numix-gtk-theme numix-icon-theme-circle
+        sudo apt-get install numix-icon-theme-circle
         uuid=$(gsettings get org.gnome.Terminal.ProfilesList default)
         uuid=`eval echo $uuid`
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$uuid/ background-color "rgb(0,43,54)"
@@ -198,7 +198,7 @@ then
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$uuid/ use-theme-colors false
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$uuid/ use-theme-transparency false
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$uuid/ visible-name 'Default'
-        printf "\nMANUAL CONFIGURATION:\nConfigure terminal, disable bluetooth icon, register powerline linux font, configure date time format to 12 hour\nSettings->Keyboard->Shortcuts->Launchers->Launch terminal, change to win+t\nTweaks:\nAppearance: Global Dark Theme On, GTK+ Numix, Icons Numix Circle\nFonts: Monospace, Powerline Consolas Regular 14\nTop Bar: Show date, Show Week Numbers\nWindows: Enable Maximize and Minimize"
+        printf "\nMANUAL CONFIGURATION:\nConfigure terminal, disable bluetooth icon, register powerline linux font, configure date time format to 12 hour\nSettings->Keyboard->Shortcuts->Launchers->Launch terminal, change to win+t\nTweaks:\nAppearance: Global Dark Theme On, GTK+ Numix, Icons Numix Circle\nFonts: Monospace, Powerline Consolas Regular 14\nTop Bar: Show date, Show Week Numbers\nWindows: Enable Maximize and Minimize\nDownload numix dark from https://numixproject.org/"
     fi
     printf "\nSet Chrome as Default Browser (Settings->Details->Default Applications)\nSet Language to en-GB\nDownload language pack\nSet trackpad speed\nDisable Guest\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nsudo vim /etc/default/grub\nChange \"quiet splash\" to \"quiet splash elevator=noop\"\nsudo update-grub\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\nInstall VeraCrypt\n\n"
 else
