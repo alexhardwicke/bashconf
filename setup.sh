@@ -107,6 +107,10 @@ fi
 # Copy diff-so-fancy
 if [ ! -f ~/bin/diff-so-fancy ];
 then
+    if [ ! -d ~/bin/ ];
+    then
+        mkdir ~/bin/
+    fi
     cd $cwd
     cd bin
     cp diff-so-fancy ~/bin/
@@ -120,6 +124,8 @@ fi
 # Set up keybase
 if [[ $(uname) == Linux* ]] ;
 then
+    sudo apt-get update
+    sudo apt-get install -y curl
     curl -O https://dist.keybase.io/linux/deb/keybase-latest-amd64.deb && sudo dpkg -i keybase-latest-amd64.deb
 else
     cd $cwd
@@ -144,15 +150,13 @@ if [[ $(uname) == Linux* ]] ;
 then
     printf "Installing Software"
     sudo apt-add-repository -y ppa:ubuntu-desktop/ubuntu-make
-    sudo echo "deb http://repo.sinew.in/ stable main" > /etc/apt/sources.list.d/enpass.list
-    wget -O - http://repo.sinew.in/keys/enpass-linux.key | apt-key add -
+    sudo sh -c 'echo "deb http://repo.sinew.in/ stable main" >> /etc/apt/sources.list.d/enpass.list'
+    wget -O - http://repo.sinew.in/keys/enpass-linux.key | sudo apt-key add -
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
     sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl ubuntu-make enpass ack-grep google-chrome-stable
-    printf "Configuring VS Code"
-    umake ide visual-studio-code
+    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl enpass ack-grep google-chrome-stable
     printf "Configuring Term::Animation"
     cd /tmp
     wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.4.tar.gz
@@ -184,7 +188,7 @@ then
         gsettings set com.canonical.indicator.bluetooth visible false
         printf "\nMANUAL CONFIGURATION:\nUnpin calendar, music, video, photos\nChange plank theme to darktheon via Tweaks in System Settings"
     else
-        sudo apt-add-repository ppa:numix/ppa
+        sudo apt-add-repository -y ppa:numix/ppa
         sudo apt-get update
         sudo apt-get install numix-icon-theme-circle
         uuid=$(gsettings get org.gnome.Terminal.ProfilesList default)
