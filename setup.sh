@@ -157,13 +157,13 @@ then
     sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
     sudo apt-get upgrade -y
+    printf "Add elevator=noop to quiet splash when asked by burg\nAnd select /dev/sda with spacebar when asked by grub\n"
+    read -n1 -r -p "Press any key to continue..."
     sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl enpass ack-grep google-chrome-stable burg burg-themes
     printf "Adding burg theme"
     cd $cwd
     cd burg-theme
     sudo cp -r Darkness_Blue/ /boot/burg/themes/
-    printf "Add elevator=noop to quiet splash"
-    read -n1 -r -p "Press any key to continue..."
     sudo update-grub
     sudo burg-install
     sudo update-burg
