@@ -150,7 +150,6 @@ if [[ $(uname) == Linux* ]] ;
 then
     printf "Installing Software"
     sudo add-apt-repository -y ppa:n-muench/burg
-    sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
     sudo apt-add-repository -y ppa:ubuntu-desktop/ubuntu-make
     sudo sh -c 'echo "deb http://repo.sinew.in/ stable main" >> /etc/apt/sources.list.d/enpass.list'
     wget -O - http://repo.sinew.in/keys/enpass-linux.key | sudo apt-key add -
@@ -158,11 +157,16 @@ then
     sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl enpass ack-grep google-chrome-stable burg burg-themes grub-customizer
+    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl enpass ack-grep google-chrome-stable burg burg-themes
     printf "Adding burg theme"
     cd $cwd
     cd burg-theme
     sudo cp -r Darkness_Blue/ /boot/burg/themes/
+    printf "Add elevator=noop to quiet splash"
+    read -n1 -r -p "Press any key to continue..."
+    sudo update-grub
+    sudo burg-install
+    sudo update-burg
     printf "Configuring Term::Animation"
     cd /tmp
     wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.4.tar.gz
@@ -210,7 +214,7 @@ then
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$uuid/ visible-name 'Default'
         printf "\nMANUAL CONFIGURATION:\nConfigure terminal, disable bluetooth icon, register powerline linux font, configure date time format to 12 hour\nSettings->Keyboard->Shortcuts->Launchers->Launch terminal, change to win+t\nTweaks:\nAppearance: GTK+ Numix Dark, Icons Numix Circle\nFonts: Monospace, Powerline Consolas Regular 14\nTop Bar: Show date, Show Week Numbers\nWindows: Enable Maximize and Minimize\nDownload numix dark from https://numixproject.org/"
     fi
-    printf "\nSet Chrome as Default Browser (Settings->Details->Default Applications)\nSet timezone to Stockholm\nSet trackpad speed\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nRun grub-customizer, choose yes\nGeneral settings, change \"quiet splash\" to \"quiet splash elevator=noop\"\nAppearance settings, choose Darkness_Blue theme, set custom resolution to 1024x768x24\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\n\n"
+    printf "\nSet Chrome as Default Browser (Settings->Details->Default Applications)\nSet timezone to Stockholm\nSet trackpad speed\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\n\n"
 else
     cd ~/
     printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
