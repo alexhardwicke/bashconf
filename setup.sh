@@ -192,7 +192,7 @@ then
         gsettings set org.gnome.desktop.interface monospace-font-name 'Powerline Consolas 15'
         gsettings set com.canonical.indicator.datetime time-format '12-hour'
         gsettings set com.canonical.indicator.bluetooth visible false
-        printf "\nMANUAL CONFIGURATION:\nUnpin calendar, music, video, photos\nChange plank theme to darktheon via Tweaks in System Settings"
+        printf "\nMANUAL CONFIGURATION:\nUnpin calendar, music, video, photos\nDownload language pack\nDisable Guest\nChange plank theme to darktheon via Tweaks in System Settings"
     else
         sudo apt-add-repository -y ppa:numix/ppa
         sudo apt-get update
@@ -210,7 +210,7 @@ then
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$uuid/ visible-name 'Default'
         printf "\nMANUAL CONFIGURATION:\nConfigure terminal, disable bluetooth icon, register powerline linux font, configure date time format to 12 hour\nSettings->Keyboard->Shortcuts->Launchers->Launch terminal, change to win+t\nTweaks:\nAppearance: GTK+ Numix Dark, Icons Numix Circle\nFonts: Monospace, Powerline Consolas Regular 14\nTop Bar: Show date, Show Week Numbers\nWindows: Enable Maximize and Minimize\nDownload numix dark from https://numixproject.org/"
     fi
-    printf "\nSet Chrome as Default Browser (Settings->Details->Default Applications)\nSet Language to en-GB\nDownload language pack\nSet trackpad speed\nDisable Guest\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nRun grub-customizer, choose yes\nGeneral settings, change \"quiet splash\" to \"quiet splash elevator=noop\"\nAppearance settings, choose Darkness_Blue theme, set custom resolution to 1024x768x24\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\n\n"
+    printf "\nSet Chrome as Default Browser (Settings->Details->Default Applications)\nSet timezone to Stockholm\nSet trackpad speed\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nRun grub-customizer, choose yes\nGeneral settings, change \"quiet splash\" to \"quiet splash elevator=noop\"\nAppearance settings, choose Darkness_Blue theme, set custom resolution to 1024x768x24\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\n\n"
 else
     cd ~/
     printf "\nMANUAL CONFIGURATION:\nAdd bashconf/keychain-2.8.1 to path\nInstall Consolas font\n\n"
