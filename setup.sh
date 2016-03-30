@@ -149,6 +149,8 @@ fi
 if [[ $(uname) == Linux* ]] ;
 then
     printf "Installing Software"
+    sudo add-apt-repository -y ppa:n-muench/burg
+    sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
     sudo apt-add-repository -y ppa:ubuntu-desktop/ubuntu-make
     sudo sh -c 'echo "deb http://repo.sinew.in/ stable main" >> /etc/apt/sources.list.d/enpass.list'
     wget -O - http://repo.sinew.in/keys/enpass-linux.key | sudo apt-key add -
@@ -156,7 +158,11 @@ then
     sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
     sudo apt-get update
     sudo apt-get upgrade -y
-    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl enpass ack-grep google-chrome-stable
+    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl enpass ack-grep google-chrome-stable burg burg-themes grub-customizer
+    printf "Adding burg theme"
+    cd $cwd
+    cd burg-theme
+    sudo cp -r Darkness_Blue/ /boot/burg/themes/
     printf "Configuring Term::Animation"
     cd /tmp
     wget http://search.cpan.org/CPAN/authors/id/K/KB/KBAUCOM/Term-Animation-2.4.tar.gz
