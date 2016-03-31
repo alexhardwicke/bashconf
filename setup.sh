@@ -201,6 +201,7 @@ then
         sudo apt-add-repository -y ppa:numix/ppa
         sudo apt-get update
         sudo apt-get install -y numix-icon-theme-circle
+        sudo apt-get remove gnome-maps gnome-weather deja-dup gnome-mines gnome-sudoku gnome-mahjongg aisleriot libreoffice-draw gnome-photos firefox xul-ext-ubufox transmission-gtk empathy libreoffice-calc libreoffice-math libreoffice-writer cheese rhythmbox usb-creator-gtk gnome-orca geoclue-2.0
         uuid=$(gsettings get org.gnome.Terminal.ProfilesList default)
         uuid=`eval echo $uuid`
         gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$uuid/ background-color "rgb(0,43,54)"
