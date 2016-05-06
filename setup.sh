@@ -73,6 +73,7 @@ then
     sudo ln ~/.dotfiles/.bash_profile ~/.bash_profile
     sudo ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
     sudo ln ~/.dotfiles/.gitconfig ~/.gitconfig
+    sudo ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
 else
     ln ~/.dotfiles/.ackrc ~/.ackrc
     ln ~/.dotfiles/.bashrc ~/.bashrc
@@ -82,6 +83,7 @@ else
     ln ~/.dotfiles/.bash_profile ~/.bash_profile
     ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
     ln ~/.dotfiles/.gitconfig ~/.gitconfig
+    ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
 fi
 
 # Set up AutoJump
