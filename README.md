@@ -10,6 +10,9 @@ vim
 dos2unix
 python (2)
 ssh-pageant
+procps
+
+Also assumes a .gitconfig with autocrlf set to input (or false).
 
 Assumes the following are installed for ubuntu-based:
 vim
