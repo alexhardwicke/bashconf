@@ -9,10 +9,13 @@ silver searcher (ag)
 vim
 dos2unix
 python (2)
-ssh-pageant
 procps
 
 Also assumes a .gitconfig with autocrlf set to input (or false).
+
+To get things to work properly, you need to copy cygwin's vim and less executables to %programfiles%/Git/usr/bin/
+
+Without them, vim will fail when executed from git (e.g. commit, interactive rebase), and less won't page as it's not aware of the terminal size.
 
 Assumes the following are installed for ubuntu-based:
 vim
