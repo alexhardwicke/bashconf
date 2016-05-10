@@ -2,21 +2,20 @@
 Scripts and other files to configure my bash setup.
 Needs to be compatible with Windows, so there's a few oddities coming...
 
-Assumes the following are installed for cygwin:
-git (from git-for-windows - the one in cygwin is too slow)
-tmux
-silver searcher (ag)
-vim
-dos2unix
-python (2)
-procps
+## Windows:
+**BEFORE CLONING THIS REPO:**
+Make sure Msys2 is installed
+Open and run:
 
-Also assumes a .gitconfig with autocrlf set to input (or false).
+```
+echo "C:/Users /home ntfs binary,noacl,auto 1 1" >> /etc/fstab
+git config --global core.autocrlf input
+exit
+```
 
-To get things to work properly, you need to copy cygwin's vim and less executables to %programfiles%/Git/usr/bin/
+After that, re-open, clone bashconf and run the setup.
 
-Without them, vim will fail when executed from git (e.g. commit, interactive rebase), and less won't page as it's not aware of the terminal size.
-
-Assumes the following are installed for ubuntu-based:
+## Ubuntu/Debian based:
+Assumes the following are installed:
 vim
 git
