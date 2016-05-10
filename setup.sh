@@ -27,6 +27,7 @@ then
         echo "This needs to be run as admin on Windows. Exiting."
         exit 1
     fi
+    pacman -S --noconfirm vim git tmux openssh procps ssh-pageant-git mingw-w64-x86_64-tk
 fi
 
 # Save current path
