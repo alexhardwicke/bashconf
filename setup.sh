@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # If windows, make sure everything's ready to go
-if [[ $(uname) == MING* ]] ;
+if [[ $(uname) == MSYS* ]] ;
 then
     # If the file exists, delete it
     if [ -f "C:/Windows/bashadmin.ext" ]; then
