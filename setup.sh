@@ -130,6 +130,31 @@ then
     chmod +x ~/bin/third_party/diff-highlight/diff-highlight
 fi
 
+# Set up cowsay
+if [[ $(uname) == MSYS* ]] ;
+then
+    if [ ! -d ~/bin/cowsay/ ];
+    then
+        if [ ! -d ~/bin/ ];
+        then
+            mkdir ~/bin/
+        fi
+        cd ~/bin/
+        git clone https://github.com/schacon/cowsay
+        cd cowsay
+        ./install.sh
+    fi
+fi
+
+# Set up fortune
+if [[ $(uname) == MSYS* ]] ;
+then
+    cd $cwd
+    cd bin
+    cd fortune
+    pacman -U fortune-mod-9708-1-x86_64.pkg.tar.xz
+fi
+
 # Set up keybase
 if [[ $(uname) == Linux* ]] ;
 then
@@ -168,7 +193,7 @@ then
     sudo apt-get upgrade -y
     printf "Add elevator=noop to quiet splash when asked by burg\nAnd select /dev/sda with spacebar when asked by grub\n"
     read -n1 -r -p "Press any key to continue..."
-    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl enpass ack-grep google-chrome-stable burg burg-themes
+    sudo apt-get install -y vim vim-gnome git-gui ubuntu-restricted-extras libcurses-perl enpass ack-grep google-chrome-stable burg burg-themes cowsay fortune
     printf "Adding burg theme"
     cd $cwd
     cd burg-theme
