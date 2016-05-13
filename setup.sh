@@ -72,7 +72,6 @@ cd ~/
 if [[ $(uname) == Linux* ]] ;
 then
     rm ~/.bashrc
-    sudo ln ~/.dotfiles/.ackrc ~/.ackrc
     sudo ln ~/.dotfiles/.bashrc ~/.bashrc
     sudo ln ~/.dotfiles/.gvimrc ~/.gvimrc
     sudo ln ~/.dotfiles/.minttyrc ~/.minttyrc
@@ -82,7 +81,6 @@ then
     sudo ln ~/.dotfiles/.gitconfig ~/.gitconfig
     sudo ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
 else
-    ln ~/.dotfiles/.ackrc ~/.ackrc
     ln ~/.dotfiles/.bashrc ~/.bashrc
     ln ~/.dotfiles/.gvimrc ~/.gvimrc
     ln ~/.dotfiles/.minttyrc ~/.minttyrc
