@@ -161,7 +161,6 @@ if [[ $(uname) == MSYS* ]] ;
 then
     cd $cwd
     cd bin
-    cd fortune
     pacman -U fortune-mod-9708-1-x86_64.pkg.tar.xz
 fi
 
