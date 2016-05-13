@@ -105,7 +105,7 @@ then
         mkdir ~/bin/
     fi
     cd $cwd/bin/
-    cp keychain ~/bin/keychain/
+    cp -r keychain/ ~/bin/keychain/
 fi
 # Copy ack bin file
 #if [[ $(uname) == MING* ]] ;
