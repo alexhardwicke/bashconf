@@ -97,6 +97,16 @@ fi
 cd ~/autojump
 ./install.py
 
+# Copy keychain bin file
+if [[ $(uname) == MING* ]] ;
+then
+    if [ ! -d ~/bin/ ];
+    then
+        mkdir ~/bin/
+    fi
+    cd $cwd/bin/
+    cp keychain ~/bin/keychain/
+fi
 # Copy ack bin file
 #if [[ $(uname) == MING* ]] ;
 #then
