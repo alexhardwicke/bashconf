@@ -218,7 +218,7 @@ then
     perl Makefile.PL && make && make test
     sudo make install
     cd ~/bashconf/
-    sudo cp asciiquarium /usr/local/bin
+    sudo cp bin/asciiquarium /usr/local/bin
     sudo chmod 0755 /usr/local/bin/asciiquarium
     mkdir -p ~/.local/share/fonts/
     cp ~/bashconf/fonts/PowerlineConsolasLinux.ttf ~/.local/share/fonts/
