@@ -132,9 +132,9 @@ then
     cd $cwd
     cd bin
     cp -r diff-so-fancy/ ~/bin/
-    chmod +x ~/bin/diff-so-fancy
-    chmod +x ~/bin/lib/diff-so-fancy.pl
-    chmod +x ~/bin/diff-highlight
+    chmod +x ~/bin/diff-so-fancy/diff-so-fancy
+    chmod +x ~/bin/diff-so-fancy/lib/diff-so-fancy.pl
+    chmod +x ~/bin/diff-so-fancy/diff-highlight
 fi
 
 # Set up cowsay
