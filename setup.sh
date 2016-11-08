@@ -78,7 +78,6 @@ then
     sudo ln ~/.dotfiles/.minttyrc ~/.minttyrc
     sudo ln ~/.dotfiles/.vimrc ~/.vimrc
     sudo ln ~/.dotfiles/.bash_profile ~/.bash_profile
-    sudo ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
     sudo ln ~/.dotfiles/.gitconfig ~/.gitconfig
     sudo ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
 else
@@ -87,7 +86,6 @@ else
     ln ~/.dotfiles/.minttyrc ~/.minttyrc
     ln ~/.dotfiles/.vimrc ~/.vimrc
     ln ~/.dotfiles/.bash_profile ~/.bash_profile
-    ln ~/.dotfiles/.git-prompt-colors.sh ~/.git-prompt-colors.sh
     ln ~/.dotfiles/.gitconfig ~/.gitconfig
     ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
 fi
