@@ -56,6 +56,7 @@ fnCloneOrPull ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git"
 fnCloneOrPull "bash-git-prompt/" "https://github.com/magicmonty/bash-git-prompt.git"
 fnCloneOrPull ".vim/" "git@github.com:alexhardwicke/.vim.git"
 fnCloneOrPull "autojump" "git@github.com:alexhardwicke/autojump.git"
+fnCloneOrPull ".tmux-gitbar" "https://github.com/aurelien-rainone/tmux-gitbar.git"
 
 # Get vim submodules
 cd ~/
