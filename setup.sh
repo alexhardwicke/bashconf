@@ -47,16 +47,19 @@ fnCloneOrPull()
         cd $1
         git pull
     else
-        git clone $2
+        if $3
+            git clone $2 --config core.autocrlf=input
+        else
+            git clone $2
+        fi
     fi
 }
 
 # Clone the repos
-fnCloneOrPull ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git"
-fnCloneOrPull "bash-git-prompt/" "https://github.com/magicmonty/bash-git-prompt.git"
-fnCloneOrPull ".vim/" "git@github.com:alexhardwicke/.vim.git"
-fnCloneOrPull "autojump" "git@github.com:alexhardwicke/autojump.git"
-fnCloneOrPull ".tmux-gitbar" "https://github.com/aurelien-rainone/tmux-gitbar.git"
+fnCloneOrPull ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git" true
+fnCloneOrPull ".vim/" "git@github.com:alexhardwicke/.vim.git" false
+fnCloneOrPull "autojump" "git@github.com:alexhardwicke/autojump.git" false
+fnCloneOrPull ".tmux-gitbar" "https://github.com/aurelien-rainone/tmux-gitbar.git" true
 
 # Get vim submodules
 cd ~/
