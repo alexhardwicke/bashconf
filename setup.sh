@@ -120,7 +120,7 @@ fi
 #    fi
 #fi
 
-# Copy diff-so-fancy
+# Copy diff-so-fancy and tmuxpwd
 if [ ! -f ~/bin/diff-so-fancy ];
 then
     if [ ! -d ~/bin/ ];
@@ -133,6 +133,9 @@ then
     chmod +x ~/bin/diff-so-fancy/diff-so-fancy
     chmod +x ~/bin/diff-so-fancy/lib/diff-so-fancy.pl
     chmod +x ~/bin/diff-so-fancy/diff-highlight
+    
+    cp tmuxpwd.sh ~/bin/tmuxpwd.sh
+    chmod +x ~/bin/tmuxpwd.sh
 fi
 
 # Set up cowsay
