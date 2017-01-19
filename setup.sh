@@ -77,6 +77,8 @@ then
     sudo ln ~/.dotfiles/.bash_profile ~/.bash_profile
     sudo ln ~/.dotfiles/.gitconfig ~/.gitconfig
     sudo ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
+    rm ~/.tmux-gitbar.conf
+    sudo ln ~/.dotfiles/tmux-gitbar.conf ~/.tmux-gitbar.conf
 else
     ln ~/.dotfiles/.bashrc ~/.bashrc
     ln ~/.dotfiles/.gvimrc ~/.gvimrc
@@ -85,6 +87,8 @@ else
     ln ~/.dotfiles/.bash_profile ~/.bash_profile
     ln ~/.dotfiles/.gitconfig ~/.gitconfig
     ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
+    rm ~/.tmux-gitbar.conf
+    ln ~/.dotfiles/tmux-gitbar.conf ~/.tmux-gitbar.conf
 fi
 
 # Set up AutoJump
