@@ -28,12 +28,6 @@ then
         exit 1
     fi
     pacman -S --noconfirm vim git tmux openssh procps ssh-pageant-git mingw-w64-x86_64-tk mingw-w64-x86_64-ag screenfetch make mingw-w64-x86_64-jq mingw-w64-x86_64-oniguruma
-    if [ pgrep "pageant" == "" ] ;
-    then
-        Putty pageant must be running before continuing
-    else
-        eval $(/usr/bin/ssh-pageant -r -a "/tmp/.ssh-pageant-$USERNAME")
-    fi
 fi
 
 # Save current path
