@@ -52,8 +52,8 @@ fnCloneOrPull()
 # Clone the repos
 fnCloneOrPull ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git" true
 fnCloneOrPull ".vim/" "git@github.com:alexhardwicke/.vim.git" false
-fnCloneOrPull "autojump" "git@github.com:alexhardwicke/autojump.git" false
-fnCloneOrPull ".tmux-gitbar" "https://github.com/aurelien-rainone/tmux-gitbar.git" true
+fnCloneOrPull "autojump/" "git@github.com:alexhardwicke/autojump.git" false
+fnCloneOrPull "tmux-gitbar/" "https://github.com/aurelien-rainone/tmux-gitbar.git" true
 
 # Get vim submodules
 cd ~/
