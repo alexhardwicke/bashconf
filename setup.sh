@@ -41,7 +41,7 @@ fnCloneOrPull()
         cd $1
         git pull
     else
-        if $3
+        if [ $3 ]; then
             git clone $2 --config core.autocrlf=input
         else
             git clone $2
