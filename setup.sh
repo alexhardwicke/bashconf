@@ -259,5 +259,5 @@ then
     printf "\nSet Chrome as Default Browser (Settings->Details->Default Applications)\nSet timezone to Stockholm\nSet trackpad speed\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\nRun sudo burg-emu and select Darkness Blue\nRun sudo vim /etc/default/burg, set GRUB_GFXMODE=1366x768 and uncomment GRUB_DISABLE_LINUX_RECOVERY, then run sudo update-burg\n\n"
 else
     cd ~/
-    printf "\nMANUAL CONFIGURATION:\nInstall Consolas font\nReplace ssh and vim exes in git-for-windows with ones from cygwin\nDownload and install PSTrayFactory from PSSoftLab if you want to hide icons (e.g. pageant)\n\n"
+    printf "\nMANUAL CONFIGURATION:\nInstall Consolas font\nAdd C:\\git-sdk-64\\usr\\bin to Windows PATH\n\n"
 fi
