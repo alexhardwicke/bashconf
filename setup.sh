@@ -123,7 +123,7 @@ fi
 #    fi
 #fi
 
-# Copy diff-so-fancy and tmuxpwd
+# Copy diff-so-fancy, jot and tmuxpwd
 if [ ! -f ~/bin/diff-so-fancy ];
 then
     if [ ! -d ~/bin/ ];
@@ -139,6 +139,9 @@ then
     
     cp tmuxpwd.sh ~/bin/tmuxpwd.sh
     chmod +x ~/bin/tmuxpwd.sh
+
+    cp jot ~/bin/jot
+    chmod +x ~/bin/jot
 fi
 
 # Set up cowsay
