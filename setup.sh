@@ -72,8 +72,18 @@ fi
 
 # Set hard-links to dotfiles
 cd ~/
-if [[ $(uname) == Linux* ]] ;
+if [[ $(uname) == MSYS* ]] ;
 then
+    ln ~/.dotfiles/.bashrc ~/.bashrc
+    ln ~/.dotfiles/.gvimrc ~/.gvimrc
+    ln ~/.dotfiles/.minttyrc ~/.minttyrc
+    ln ~/.dotfiles/.vimrc ~/.vimrc
+    ln ~/.dotfiles/.bash_profile ~/.bash_profile
+    ln ~/.dotfiles/.gitconfig ~/.gitconfig
+    ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
+    rm ~/.tmux-gitbar.conf
+    ln ~/.dotfiles/tmux-gitbar.conf ~/.tmux-gitbar.conf
+else
     rm ~/.bashrc
     sudo ln ~/.dotfiles/.bashrc ~/.bashrc
     sudo ln ~/.dotfiles/.gvimrc ~/.gvimrc
@@ -84,16 +94,6 @@ then
     sudo ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
     rm ~/.tmux-gitbar.conf
     sudo ln ~/.dotfiles/tmux-gitbar.conf ~/.tmux-gitbar.conf
-else
-    ln ~/.dotfiles/.bashrc ~/.bashrc
-    ln ~/.dotfiles/.gvimrc ~/.gvimrc
-    ln ~/.dotfiles/.minttyrc ~/.minttyrc
-    ln ~/.dotfiles/.vimrc ~/.vimrc
-    ln ~/.dotfiles/.bash_profile ~/.bash_profile
-    ln ~/.dotfiles/.gitconfig ~/.gitconfig
-    ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
-    rm ~/.tmux-gitbar.conf
-    ln ~/.dotfiles/tmux-gitbar.conf ~/.tmux-gitbar.conf
 fi
 
 # Set up AutoJump
