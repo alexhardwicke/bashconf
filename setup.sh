@@ -28,6 +28,11 @@ then
         exit 1
     fi
     pacman -S --noconfirm vim git tmux openssh procps ssh-pageant-git mingw-w64-x86_64-tk mingw-w64-x86_64-ag screenfetch make mingw-w64-x86_64-jq mingw-w64-x86_64-oniguruma
+else if [[ $(uname) == Darwin ]] ;
+    xcode-select --install 
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    brew install coreutils vim —with-override-system-vi macvim grep openssh the_silver_searcher git tree tmux cowsay fortune htop openssh fish
+    pip install --upgrade pip setuptools
 fi
 
 # Save current path
