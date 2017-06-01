@@ -257,7 +257,11 @@ then
         printf "\nMANUAL CONFIGURATION:\nConfigure terminal, disable bluetooth icon, register powerline linux font, configure date time format to 12 hour\nSettings->Keyboard->Shortcuts->Launchers->Launch terminal, change to win+t\nTweaks:\nAppearance: GTK+ Numix Dark, Icons Numix Circle\nFonts: Monospace, Powerline Consolas Regular 14\nTop Bar: Show date, Show Week Numbers\nWindows: Enable Maximize and Minimize\nDownload numix dark from https://numixproject.org/, extract to /usr/share/themes/"
     fi
     printf "\nSet Chrome as Default Browser (Settings->Details->Default Applications)\nSet timezone to Stockholm\nSet trackpad speed\nDisable second monitor\nPin terminal, Chrome\nOpen Software & Updates (search), choose Additional Drivers, choose the most recent TESTED NVIDIA driver\n\nSSD OPTIMIZATION:\nsudo vim /etc/fstab\nadd noatime,discard, before errors=remount on main ext4\nDownload Messenger for Desktop from http://github.com/Sytten/Facebook-Messenger-Desktop/releases\nRun sudo burg-emu and select Darkness Blue\nRun sudo vim /etc/default/burg, set GRUB_GFXMODE=1366x768 and uncomment GRUB_DISABLE_LINUX_RECOVERY, then run sudo update-burg\n\n"
+else if [[ $(uname) == MSYS* ]] ;
+then
+    cd ~/
+    printf "\nMANUAL CONFIGURATION:\nInstall Keybase\nInstall Consolas font\nAdd C:\\git-sdk-64\\usr\\bin to Windows PATH\n\n"
 else
     cd ~/
-    printf "\nMANUAL CONFIGURATION:\nInstall Consolas font\nAdd C:\\git-sdk-64\\usr\\bin to Windows PATH\n\n"
+    printf "\nMANUAL CONFIGURATION:\nInstall Keybase\nInstall Consolas font (Linux variant)\n\n"
 fi
