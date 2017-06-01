@@ -135,7 +135,12 @@ then
     fi
     cd $cwd
     cd bin
-    cp -r diff-so-fancy/ ~/bin/
+    if [[ $(uname) == Darwin ]] ;
+    then
+	cp -r diff-so-fancy/ ~/bin/diff-so-fancy/
+    else
+        cp -r diff-so-fancy/ ~/bin/
+    fi
     chmod +x ~/bin/diff-so-fancy/diff-so-fancy
     chmod +x ~/bin/diff-so-fancy/lib/diff-so-fancy.pl
     chmod +x ~/bin/diff-so-fancy/diff-highlight
