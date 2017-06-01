@@ -182,6 +182,9 @@ if [[ $(uname) == Linux* ]] ;
 then
     sudo -H python get-pip.py
     sudo -H pip install Pygments-2.0.2-py2-none-any.whl
+else if [[ $(uname) == Darwin ]] ;
+then
+    sudo -H pip install Pygments-2.0.2-py2-none-any.whl
 else
     python get-pip.py
     pip.exe install Pygments-2.0.2-py2-none-any.whl
