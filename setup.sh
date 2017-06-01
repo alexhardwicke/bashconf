@@ -171,17 +171,8 @@ then
     pacman -U fortune-mod-9708-1-x86_64.pkg.tar.xz
 fi
 
-# Set up keybase
-if [[ $(uname) == Linux* ]] ;
-then
-    sudo apt-get update
-    sudo apt-get install -y curl
-    curl -O https://dist.keybase.io/linux/deb/keybase-latest-amd64.deb && sudo dpkg -i keybase-latest-amd64.deb
-else
-    cd $cwd
-    cd bin
-    cp keybase.exe ~/bin/
-fi
+# Set up keybase (TODO)
+printf "Install Keybase manually\n"
 
 # Set up pygment
 cd $cwd
