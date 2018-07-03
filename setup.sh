@@ -2,11 +2,14 @@
 
 # If mac os, make sure everything's ready to go
 if [[ $(uname) == Darwin ]] ;
+then
     xcode-select --install 
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install coreutils vim —with-override-system-vi macvim grep openssh the_silver_searcher git tree tmux cowsay fortune htop openssh fish diff-so-fancy
     pip install --upgrade pip setuptools
 fi
+
+## TODO: Base utils for linux (ag, vim, etc. etc.)
 
 # Save current path
 cwd=$(pwd)
@@ -50,7 +53,7 @@ sudo ln ~/.dotfiles/tmux-gitbar.conf ~/.tmux-gitbar.conf
 cd ~/autojump
 ./install.py
 
-# Copy diff-so-fancy, jot and tmuxpwd
+# Copy jot and tmuxpwd
 if [ ! -f ~/bin/diff-so-fancy ];
 then
     if [ ! -d ~/bin/ ];
@@ -60,32 +63,12 @@ then
     cd $cwd
     cd bin
     # Homebrew on mac
-    if [[ ! $(uname) == Darwin ]] ;
-    then
-        cp -r diff-so-fancy/ ~/bin/
-        chmod +x ~/bin/diff-so-fancy
-        chmod +x ~/bin/lib/diff-so-fancy.pl
-        chmod +x ~/bin/diff-highlight
-    fi
     
     cp tmuxpwd.sh ~/bin/tmuxpwd.sh
     chmod +x ~/bin/tmuxpwd.sh
 
     cp jot ~/bin/jot
     chmod +x ~/bin/jot
-fi
-
-# Set up pygment
-cd $cwd
-cd bin
-
-if [[ $(uname) == Linux* ]] ;
-then
-    python get-pip.py
-    pip install Pygments-2.0.2-py2-none-any.whl
-else if [[ $(uname) == Darwin ]] ;
-then
-    sudo -H pip install Pygments-2.0.2-py2-none-any.whl
 fi
 
 cd ~/
