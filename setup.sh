@@ -3,7 +3,7 @@
 # If mac os, install brew
 if [[ $(uname) == Darwin ]] ;
 then
-    xcode-select --install 
+    xcode-select --install
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install coreutils vim —with-override-system-vi macvim grep openssh the_silver_searcher git tree tmux cowsay fortune htop openssh fish diff-so-fancy
     pip install --upgrade pip setuptools
