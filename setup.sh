@@ -7,8 +7,7 @@ then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install coreutils vim —with-override-system-vi macvim grep openssh the_silver_searcher git tree tmux cowsay fortune htop openssh fish diff-so-fancy
     pip install --upgrade pip setuptools
-else
-    ## TODO: Base utils for linux (ag, vim, etc. etc.)
+    ## TODO: Base utils for linux in else (ag, vim, etc. etc.)
 fi
 
 # Save current path
