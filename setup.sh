@@ -1,29 +1,38 @@
 #!/bin/bash
 
 # Check if we're running with sudo
-if [ $(id -ur) -ne 0 ]; then
-    echo "Please run as root"
+if [ $(id -ur) -eq 0 ]; then
+    printf "Please don't run as root\n"
     exit
 fi
 
 # Make sure ~/.ssh/id_rsa exists
 if [ ! -f ~/.ssh/id_rsa ]; then
-    echo "~/.ssh/id_rsa not found"
-    return
+    printf "~/.ssh/id_rsa not found\n"
+    exit
 fi
+
+# Ensure prerequisites are installed
+read -n1 -p "Have you installed all prerequisites? [y,n] " prerequisites
+printf "\n"
+case $prerequisites in
+    n|N)
+        printf "sudo apt install autojump fortune lolcat cowsay tig vim mc silversearcher-ag tig tmux\n"
+        exit ;;
+esac
 
 # Check if we're running in WSL or real Linux
 if grep -q Microsoft /proc/version; then
     WINDOWS=1
-    read -n1 -p "Windows username?" WINDOWS_USERNAME
-    LINUX="CLIENT"
+    read -p "Windows username? " WINDOWS_USERNAME
+    INSTALL_TYPE="CLIENT"
 else
     WINDOWS=0
-    read -n1 -p "Client install? (tmux) [y,n]" isclient
+    read -n1 -p "Client install? (tmux etc.) [y,n] " isclient
     case $isclient in
-        y|Y) LINUX="CLIENT" ;;
-        n|N) LINUX="SERVER" ;;
-        *) return ;;
+        y|Y) INSTALL_TYPE="CLIENT" ;;
+        n|N) INSTALL_TYPE="SERVER" ;;
+        *) exit ;;
     esac
 fi
 
@@ -40,6 +49,8 @@ eval `~/bin/keychain/keychain -q --eval --agents ssh id_rsa`
 # Clone git repos
 fnCloneOrPull()
 {
+    echo "Cloning $3"
+
     cpwd=$(pwd)
     cd $1
 
@@ -48,46 +59,46 @@ fnCloneOrPull()
         git pull
         cd $cpwd
     else
-        git clone $2 $3
+        git clone $3 $2
     fi
 }
 
 # Clone the repos
-fnCloneOrPull "~/" ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git"
-fnCloneOrPull "~/" "autojump/" "git@github.com:alexhardwicke/autojump.git"
-fnCloneOrPull "~/.tmux/plugins" "tpm" "https://github.com/tmux-plugins/tpm"
+fnCloneOrPull "$HOME" ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git"
+fnCloneOrPull "$HOME/.tmux/plugins" "tpm" "https://github.com/tmux-plugins/tpm"
+fnCloneOrPull "$HOME" ".vim/" "git@github.com:alexhardwicke/.vim.git"
 
-sudo ln ~/.dotfiles/.dir_colors ~/.dir_colors
-sudo ln ~/.dotfiles/.vimrc ~/.vimrc
-sudo ln ~/.dotfiles/.bash_profile ~/.bash_profile
-sudo ln ~/.dotfiles/.gitconfig ~/.gitconfig
+ln ~/.dotfiles/.vimrc ~/.vimrc
+ln ~/.dotfiles/.bash_profile ~/.bash_profile
+ln ~/.dotfiles/.gitconfig ~/.gitconfig
 
 # Set hard-links to dotfiles
-rm ~/.bashrc
+rm -f ~/.bashrc
 
 if [ "$WINDOWS" -eq "1" ]; then
     WINDOWS_PATH="/mnt/c/Users/$WINDOWS_USERNAME"
     cp ~/.dotfiles/.gvimrc $WINDOWS_PATH/.gvimrc
     cp ~/.dotfiles/.minttyrc $WINDOWS_PATH/.minttyrc
-    fnCloneOrPull $WINDOWS_PATH ".vim/" "git@github.com:alexhardwicke/.vim.git"
-    if [ ! -d "~/.vim" ]; then
-        sudo ln -s ~/.vim $WINDOWS_PATH/.vim
-    fi
-else
-    fnCloneOrPull "~/" ".vim/" "git@github.com:alexhardwicke/.vim.git"
+    mkdir -p $WINDOWS_PATH/.vim
+    cp -r .vim/* $WINDOWS_PATH/.vim/
+
+    rm -rf ~/Desktop
+    rm -rf ~/Documents
+    rm -rf ~/Downloads
+
+    ln -s $WINDOWS_PATH/Desktop ~/Desktop
+    ln -s $WINDOWS_PATH/Documents ~/Documents
+    ln -s $WINDOWS_PATH/Downloads ~/Downloads
 fi
 
-if [ "$LINUX" -eq "CLIENT" ]; then
-    sudo ln ~/.dotfiles/.bashrc_client ~/.bashrc
-    sudo ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
-elif [ "$LINUX" -eq "SERVER" ]; then
-    sudo ln ~/.dotfiles/.bashrc_session ~/.bashrc
+if [ $INSTALL_TYPE = "CLIENT" ]; then
+    ln ~/.dotfiles/.bashrc_client ~/.bashrc
+    ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
+elif [ $INSTALL_TYPE = "SERVER" ]; then
+    ln ~/.dotfiles/.bashrc_session ~/.bashrc
 else
     echo "Unrecognized system"
-    return
+    exit
 fi
-
-cd ~/autojump
-./install.py
 
 cd ~/
