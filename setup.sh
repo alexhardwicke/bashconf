@@ -25,15 +25,6 @@ esac
 if grep -q Microsoft /proc/version; then
     WINDOWS=1
     read -p "Windows username? " WINDOWS_USERNAME
-    INSTALL_TYPE="CLIENT"
-else
-    WINDOWS=0
-    read -n1 -p "Client install? (tmux etc.) [y,n] " isclient
-    case $isclient in
-        y|Y) INSTALL_TYPE="CLIENT" ;;
-        n|N) INSTALL_TYPE="SERVER" ;;
-        *) exit ;;
-    esac
 fi
 
 # Copy bin
@@ -68,18 +59,21 @@ fnCloneOrPull "$HOME" ".dotfiles/" "git@github.com:alexhardwicke/.dotfiles.git"
 fnCloneOrPull "$HOME/.tmux/plugins" "tpm" "https://github.com/tmux-plugins/tpm"
 fnCloneOrPull "$HOME" ".vim/" "git@github.com:alexhardwicke/.vim.git"
 
+# Set hard-links to dotfiles
+rm -f ~/.bashrc
+
+ln ~/.dotfiles/.bashrc ~/.bashrc
 ln ~/.dotfiles/.vimrc ~/.vimrc
 ln ~/.dotfiles/.bash_profile ~/.bash_profile
 ln ~/.dotfiles/.gitconfig ~/.gitconfig
 
-# Set hard-links to dotfiles
-rm -f ~/.bashrc
-
 if [ "$WINDOWS" -eq "1" ]; then
     WINDOWS_PATH="/mnt/c/Users/$WINDOWS_USERNAME"
-    cp ~/.dotfiles/.gvimrc $WINDOWS_PATH/.gvimrc
-    cp ~/.dotfiles/.minttyrc $WINDOWS_PATH/.minttyrc
     mkdir -p $WINDOWS_PATH/.vim
+    mkdir -p $WINDOWS_PATH/AppData/Roaming/wsltty
+
+    cp ~/.dotfiles/.gvimrc $WINDOWS_PATH/.gvimrc
+    cp ~/.dotfiles/.minttyrc $WINDOWS_PATH/AppData/Roaming/wsltty/config
     cp -r .vim/* $WINDOWS_PATH/.vim/
 
     rm -rf ~/Desktop
@@ -89,16 +83,8 @@ if [ "$WINDOWS" -eq "1" ]; then
     ln -s $WINDOWS_PATH/Desktop ~/Desktop
     ln -s $WINDOWS_PATH/Documents ~/Documents
     ln -s $WINDOWS_PATH/Downloads ~/Downloads
-fi
 
-if [ $INSTALL_TYPE = "CLIENT" ]; then
-    ln ~/.dotfiles/.bashrc_client ~/.bashrc
     ln ~/.dotfiles/.tmux.conf ~/.tmux.conf
-elif [ $INSTALL_TYPE = "SERVER" ]; then
-    ln ~/.dotfiles/.bashrc_session ~/.bashrc
-else
-    echo "Unrecognized system"
-    exit
 fi
 
 cd ~/
