@@ -17,7 +17,7 @@ read -n1 -p "Have you installed all prerequisites? [y,n] " prerequisites
 printf "\n"
 case $prerequisites in
     n|N)
-        printf "sudo apt install autojump fortune lolcat cowsay tig vim mc silversearcher-ag tig tmux\n"
+        printf "sudo apt install autojump tig vim mc silversearcher-ag tig tmux\n"
         exit ;;
 esac
 
